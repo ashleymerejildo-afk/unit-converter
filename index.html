@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Converter</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background-color: #f5f5dc;
+      padding: 50px;
+    }
+
+    h1 {
+      color: brown;
+    }
+
+    input, select, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    #result {
+      font-size: 20px;
+      margin-top: 20px;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Unit Converter</h1>
+
+  <input type="number" id="inputValue" placeholder="Enter number">
+
+  <br>
+
+  <select id="conversionType">
+    <option value="kmToMi">Kilometers → Miles</option>
+    <option value="miToKm">Miles → Kilometers</option>
+  </select>
+
+  <br>
+
+  <button onclick="convert()">Convert</button>
+
+  <p id="result"></p>
+
+  <script>
+    function convert() {
+      let value = document.getElementById("inputValue").value;
+      let type = document.getElementById("conversionType").value;
+      let result;
+
+      if (type === "kmToMi") {
+        result = value * 0.621371;
+        document.getElementById("result").innerText = value + " km = " + result.toFixed(2) + " miles";
+      } else {
+        result = value * 1.60934;
+        document.getElementById("result").innerText = value + " miles = " + result.toFixed(2) + " km";
+      }
+    }
+  </script>
+
+</body>
+</html>
